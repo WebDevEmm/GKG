@@ -7,7 +7,7 @@
       name="description"
       content="Gold Key Group's realtors will guide you in the process of selling a house, as well as provide you with tools to sell that house as soon as possible.
       Contact us for a free consultation!
-      Maria: (407)-913-0154 - Paula: (407)-668-9070"
+      Maria: (407) 913-0154 - Paula: (407) 668-9070"
     />
     <meta
       name="keywords"
@@ -35,11 +35,11 @@
       <address id="upper--nav--phones">
         <span>
           Maria Zendejas:
-          <a href="tel:407-913-0154" title="Call Maria"> (407)-913-0154 </a>
+          <a href="tel:407-913-0154" title="Call Maria"> (407) 913-0154 </a>
         </span>
         <span>
           Paula Correa:
-          <a href="tel:407-668-9070" title="Call Paula"> (407)-668-9070 </a>
+          <a href="tel:407-668-9070" title="Call Paula"> (407) 668-9070 </a>
         </span>
       </address>
     </div>
@@ -66,21 +66,29 @@
       </p>
       <div class="header--icons">
         <a
-          href="mailto:mariazendejas@gmail.com, paulacorreare@gmail.com?subject=Inquiry%20from%20your%20website%20&body=Hello!%0D%0A%0D%0AMy%20name%20is%3A%20%0D%0AMy%20phone%20number%20is%3A%20%0D%0AThe%20best%20time%20to%20call%20me%20is%20at%3A%20%0D%0AI'd%20like%20to%20(%20BUY%20%2F%20SELL%20)%20a%20house%20on%20ZIP%20code%3A%20%0D%0A%0D%0A(For%20buying%20fill%20this%20as%20well%2C%20please)%0D%0A%0D%0AMy%20price%20range%20for%20buying%20is%3A%20%0D%0AMinimum%20sq%20feet%3A%0D%0ABeds%3A%20%0D%0A%0D%0A(Please%20edit%20this%20template%20to%20fit%20your%20inquiry%20or%20delete%20the%20fields%20and%20type%20in%20your%20message)"
+          href="mailto:mariazendejas@gmail.com, paulacorreare@gmail.com?subject=Inquiry%20from%20your%20website%20&body=Hello!%0D%0A%0D%0AMy%20name%20is%3A%20%0D%0AMy%20phone%20number%20is%3A%20%0D%0AThe%20best%20time%20to%20call%20me%20is%20at%3A%20%0D%0A%0D%0A(For%20buying%20fill%20this%20as%20well%2C%20please)%0D%0A%0D%0AMy%20price%20range%20for%20buying%20is%3A%20%0D%0AMinimum%20sq%20feet%3A%0D%0ABeds%3A%20%0D%0A%0D%0A(Please%20edit%20this%20template%20to%20fit%20your%20inquiry%20or%20delete%20the%20fields%20and%20type%20in%20your%20message)"
           target="_blank"
         >
           <svg class="fas fa-envelope"></svg>
         </a>
-        <a href="https://www.facebook.com/goldkeyorlando/" target="_blank">
+        <a
+          href="https://www.facebook.com/goldkeyorlando/"
+          target="_blank"
+          target="_blank"
+        >
           <svg class="fab fa-facebook-square"></svg>
         </a>
-        <a href="https://www.instagram.com/goldkey_orlando/" target="_blank">
+        <a
+          href="https://www.instagram.com/goldkey_orlando/"
+          target="_blank"
+          target="_blank"
+        >
           <svg class="fab fa-instagram"></svg>
         </a>
       </div>
 
       <div class="header--down--arrow">
-        <a href="#"><svg class="fas fa-chevron-down"></svg> </a>
+        <a href="#search"><svg class="fas fa-chevron-down"></svg> </a>
       </div>
 
       <img
@@ -102,12 +110,12 @@
     <div id="top--nav">
       <nav id="main--nav">
         <h2 class="gkg">
-          <a href="index.html"> GKG </a>
+          <a href="../index.php"> GKG </a>
         </h2>
 
         <ul>
           <li class="ddm">
-            <a href="./index.html" class="big--cta">
+            <a href="../index.php" class="big--cta">
               <svg class="fa fa-home">HOME</svg>
             </a>
           </li>
@@ -142,21 +150,90 @@
           </h2>
           <p>
             In order for us to help you we need some information from you.
-            <br /><br />
-            We'll contact you on the time you specify bellow with the benefits
-            we offer!
+
           </p>
-          <!-- IDX DIV .mls--search -->
+
+          <?php
+              if((!isset($_GET['formstatus']) || $_GET['formstatus'] == "error") && !$_SERVER["REQUEST_METHOD"] == "POST"){
+                // exit();
+              } elseif (isset($_GET['formstatus'])) {
+
+                $contactCheck = $_GET['formstatus'];
+                $thisTime = $thisDate = $month = "";
+                
+                if($_GET['time'] === "anytime") {
+                  $thisTime = " anytime";
+
+                }elseif($_GET['time'] === "morning"){
+                  $thisTime = "  during the morning";
+
+                }elseif($_GET['time'] == "afternoon"){
+                  $thisTime = " during the afternoon";
+
+                }elseif($_GET['time'] == "evening"){ 
+                  $thisTime = " during the evening";
+                }
+
+                $pickedMonth = date("m",strtotime($_GET['date']));
+
+                if($pickedMonth == "1"){
+                  $month = "January";
+                } elseif ($pickedMonth == "2") {
+                  $month = "February";
+                } elseif ($pickedMonth == "3") {
+                  $month = "March";
+                } elseif ($pickedMonth == "4") {
+                  $month = "April";
+                } elseif ($pickedMonth == "5") {
+                  $month = "May";
+                } elseif ($pickedMonth == "6") {
+                  $month = "June";
+                } elseif ($pickedMonth == "7") {
+                  $month = "July";
+                } elseif ($pickedMonth == "8") {
+                  $month = "August";
+                } elseif ($pickedMonth == "9") {
+                  $month = "September";
+                } elseif ($pickedMonth == "10") {
+                  $month = "October";
+                } elseif ($pickedMonth == "11") {
+                  $month = "November";
+                } elseif ($pickedMonth == "12") {
+                  $month = "December";
+                } else {
+                  $month = "bad month";
+                }
+
+                $thisDayStr = date("l",strtotime($_GET['date']));
+                $thisDayNum = date("d",strtotime($_GET['date']));
+
+                $thisDate = " ".$thisDayStr.", ".$month." ".$thisDayNum.",";
+
+
+                  if ($contactCheck == "emptydata") {
+                echo '<p class="error php--message">You didn\'t fill in all the fields. Please try again.<a href="./index.php#form--top" id="close--btn">Click to go back</a></p>  ';
+                
+                } elseif ($contactCheck == "invalidemail") {
+                  echo '<p class="error php--message">You didn\'t enter a valid email. Please try again.</p> ';
+                
+                } elseif ($contactCheck == "error") {
+                  echo '<p class="error php--message">There was a problem fetching your request. Please try again.<a href="./index.php#form--top" id="close--btn">Click to go back</a></p> ';
+                
+                } elseif ($contactCheck == "success") {
+                  echo '<p class="success php--message">Thank you for contacting us, we will call you on'.$thisDate.'&nbsp<b style="display:inline;">'.$thisTime.'</b>.'.' <a href="./index.php#form--top" id="close--btn">Click to go back</a></p> ';
+                  
+                }
+              }
+
+            ?>
+          <!-- /// FORM /// -->
           <form
-            action="#"
-            method="post"
-            class="contact--form--sell"
-            id="form--SELL"
+            action="./contactform.php"
+            method="POST"
+            class="contact--form"
+            id="form--contact--us"
           >
-            <p class="form--header">
-              <!-- We are going to call you on the date and time you select bellow. 
-              <br />
-              <br /> -->
+          <p class="form--header" id="form--top">
               We can help you sell your house!
               <br />
               Just tell us who you are:
@@ -166,7 +243,7 @@
               <div class="form--col">
                 <!-- ### NAME ### -->
                 <label for="name">
-                  Name <span style="color: red">*</span> :
+                  Name <span style="color: #5a473c">*</span>
                 </label>
                 <br />
                 <input
@@ -175,34 +252,52 @@
                   id="name"
                   placeholder="First and last name"
                   required
+                  <?php
+                    if(isset($_GET['name'])){
+                      echo 'value = "'.$_GET['name'].'"';
+                    }
+                  ?>
                 />
                 <br />
                 <br />
                 <!-- ### PHONE NUMBER ### -->
                 <label for="phone">
-                  Phone <span style="color: red">*</span> :
+                  Phone <span style="color: #5a473c">*</span>
                 </label>
                 <br />
                 <input
                   type="tel"
                   name="phone"
                   id="phone"
-                  placeholder="(111)-222-3333"
+                  placeholder="000 111 2222"
+                  pattern="[0-9]{3} [0-9]{3} [0-9]{4}" 
+                  maxlength="12"  
+                  title="000 111 2222"
                   required
+                  <?php
+                    if(isset($_GET['phone'])){
+                      echo 'value = "'.$_GET['phone'].'"';
+                    }
+                  ?>
                 />
                 <br />
                 <br />
                 <!-- ### E-MAIL ### -->
                 <label for="email">
-                  E-mail <span style="color: red">*</span> :
+                  E-mail <span style="color: #5a473c">*</span>
                 </label>
                 <br />
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="eamil@example.com"
+                  placeholder="email@example.com"
                   required
+                  <?php
+                    if(isset($_GET['email'])){
+                      echo 'value = "'.$_GET['email'].'"';
+                    }
+                  ?>
                 />
                 <br />
               </div>
@@ -211,7 +306,7 @@
               <div class="form--col">
                 <!-- ### DATE ### -->
                 <label for="date">
-                  Select a date <span style="color: red">*</span> :
+                  Select a date <span style="color: #5a473c">*</span>
                 </label>
                 <br />
                 <span class="datepicker-format">
@@ -222,21 +317,34 @@
                   type="date"
                   name="date"
                   id="date"
-                  min="2020-08-06"
+                  <?php
+                    echo 'min="'.date("Y-m-d", strtotime("today")).'"'
+                  ?>
                   max="2020-12-31"
                   required
+                  <?php
+                    if(isset($_GET['date']) && ($_GET['formstatus'] != "success")){
+                      echo 'value = "'.$_GET['date'].'"';
+                    }
+                  ?>
                 />
                 <br />
                 <br />
                 <!-- ### TIME ### -->
                 <div class="form--time">
-                  <label for="time"> Best time to call: </label>
+                  <label for="time"> Best time to call </label>
                   <br />
                   <input
                     type="radio"
                     name="time"
                     id="morning"
                     value="morning"
+                    <?php
+                      if(isset($_GET['time']) && $_GET['time'] == "morning" && ($_GET['formstatus'] != "success")){
+                        echo 'checked';
+                      }
+                    ?>
+                    
                   />
                   <label for="morning" class="form--time--option">
                     Morning
@@ -247,6 +355,11 @@
                     name="time"
                     id="afternoon"
                     value="afternoon"
+                    <?php
+                    if(isset($_GET['time']) && $_GET['time'] == "afternoon" && ($_GET['formstatus'] != "success")){
+                      echo 'checked';
+                    }
+                  ?>
                   />
                   <label for="afternoon" class="form--time--option">
                     Afternoon
@@ -257,6 +370,11 @@
                     name="time"
                     id="evening"
                     value="evening"
+                    <?php
+                    if(isset($_GET['time']) && $_GET['time'] == "evening" && ($_GET['formstatus'] != "success")){
+                      echo 'checked';
+                    }
+                  ?>
                   />
                   <label for="evening" class="form--time--option">
                     Evening
@@ -266,8 +384,12 @@
                     type="radio"
                     name="time"
                     id="anytime"
-                    value="true"
-                    checked
+                    value="anytime"
+                    <?php
+                    if(!isset($_GET['time']) || $_GET['time'] == "anytime" || $_GET['formstatus'] == "success"){
+                      echo 'checked';
+                    }
+                    ?>
                   />
                   <label for="anytime" class="form--time--option">
                     Any time
@@ -278,36 +400,30 @@
               <!-- THIRD COLUMN START -->
               <div class="form--col">
                 <!-- ### MESSAGE ### -->
-                <label for="message"> Include a message (optional): </label>
+                <label for="message"> Include a message (optional) </label>
                 <br />
                 <br />
                 <textarea
                   name="message"
                   id="message"
-                  form="form--SELL"
+                  form="form--contact--us"
                   cols="30"
-                  rows="8"
-                  style="resize: none"
-                >
-                </textarea>
+                  rows="8" 
+                ><?php
+                    if(isset($_GET['message']) && ($_GET['formstatus'] != "success")){
+                      echo $_GET['message'];
+                    }
+                  ?></textarea>
                 <br />
               </div>
               <!-- THIRD COLUMN END -->
             </div>
+            <div
+              class="g-recaptcha"
+              data-sitekey="6LfBlcoZAAAAAJ0w9JMD4Tye281QJZyXmn4t55u3"
+            ></div>
 
             <input type="submit" id="submit" value="Submit" />
-            <!-- FORM FOOTER START-->
-            <!-- <div class="form--footer">
-              <p>
-                We are never too busy for your referrals! 
-                <br />
-                <svg class="far fa-comments"></svg>
-                <br />
-                Let us provide your friends and family with the finest real estate
-                services.
-              </p>
-            </div> -->
-            <!-- FORM FOOTER END-->
           </form>
         </div>
       </section>
@@ -338,10 +454,10 @@
             <h3>Maria Zendejas</h3>
             <address>
               <span> Cellphone: </span>
-              <a href="tel:407-913-0154" title="Call Maria"> (407)-913-0154 </a>
+              <a href="tel:407-913-0154" title="Call Maria"> (407) 913-0154 </a>
               <span> E-mail: </span>
               <a
-                href="mailto:mariazendejas@gmail.com?subject=Inquiry%20from%20your%20website%20&body=Hello%2C%20Maria%2C%0D%0A%0D%0AMy%20name%20is%3A%20%0D%0AMy%20phone%20number%20is%3A%20%0D%0AThe%20best%20time%20to%20call%20me%20is%20at%3A%20%0D%0AI'd%20like%20to%20(%20BUY%20%2F%20SELL%20)%20a%20house%20on%20ZIP%20code%3A%20%0D%0A%0D%0A(For%20buying%20fill%20this%20as%20well%2C%20please)%0D%0A%0D%0AMy%20price%20range%20for%20buying%20is%3A%20%0D%0AMinimum%20sq%20feet%3A%0D%0ABeds%3A%20%0D%0A%0D%0A(Please%20edit%20this%20template%20to%20fit%20your%20inquiry%20or%20delete%20the%20fields%20and%20type%20in%20your%20message)"
+                href="mailto:mariazendejas@gmail.com?subject=Inquiry%20from%20your%20website%20&body=Hello%2C%20Maria%2C%0D%0A%0D%0AMy%20name%20is%3A%20%0D%0AMy%20phone%20number%20is%3A%20%0D%0AThe%20best%20time%20to%20call%20me%20is%20at%3A%20%0D%0A%0D%0A(For%20buying%20fill%20this%20as%20well%2C%20please)%0D%0A%0D%0AMy%20price%20range%20for%20buying%20is%3A%20%0D%0AMinimum%20sq%20feet%3A%0D%0ABeds%3A%20%0D%0A%0D%0A(Please%20edit%20this%20template%20to%20fit%20your%20inquiry%20or%20delete%20the%20fields%20and%20type%20in%20your%20message)"
                 target="_blank"
                 title="Send an e-mail to Maria"
               >
@@ -351,7 +467,9 @@
               <ul>
                 <li>
                   <svg class="fab fa-facebook-square"></svg>
-                  <a href="https://www.facebook.com/mariazendejasrealtor/"
+                  <a
+                    href="https://www.facebook.com/mariazendejasrealtor/"
+                    target="_blank"
                     >Facebook</a
                   >
                 </li>
@@ -363,6 +481,7 @@
                   <svg class="fab fa-whatsapp"></svg>
                   <a
                     href="https://wa.me/14079130154"
+                    target="_blank"
                     title="Send me a message on Whatsapp"
                     >Whatsapp</a
                   >
@@ -374,10 +493,10 @@
             <h3>Paula Correa</h3>
             <address>
               <span> Cellphone: </span>
-              <a href="tel:407-668-9070" title="Call Paula"> (407)-668-9070 </a>
+              <a href="tel:407-668-9070" title="Call Paula"> (407) 668-9070 </a>
               <span> E-mail: </span>
               <a
-                href="mailto:paulacorreare@gmail.com?subject=Inquiry%20from%20your%20website%20&body=Hello%2C%20Paula%2C%0D%0A%0D%0AMy%20name%20is%3A%20%0D%0AMy%20phone%20number%20is%3A%20%0D%0AThe%20best%20time%20to%20call%20me%20is%20at%3A%20%0D%0AI'd%20like%20to%20(%20BUY%20%2F%20SELL%20)%20a%20house%20on%20ZIP%20code%3A%20%0D%0A%0D%0A(For%20buying%20fill%20this%20as%20well%2C%20please)%0D%0A%0D%0AMy%20price%20range%20for%20buying%20is%3A%20%0D%0AMinimum%20sq%20feet%3A%0D%0ABeds%3A%20%0D%0A%0D%0A(Please%20edit%20this%20template%20to%20fit%20your%20inquiry%20or%20delete%20the%20fields%20and%20type%20in%20your%20message)"
+                href="mailto:paulacorreare@gmail.com?subject=Inquiry%20from%20your%20website%20&body=Hello%2C%20Paula%2C%0D%0A%0D%0AMy%20name%20is%3A%20%0D%0AMy%20phone%20number%20is%3A%20%0D%0AThe%20best%20time%20to%20call%20me%20is%20at%3A%20%0D%0A%0D%0A(For%20buying%20fill%20this%20as%20well%2C%20please)%0D%0A%0D%0AMy%20price%20range%20for%20buying%20is%3A%20%0D%0AMinimum%20sq%20feet%3A%0D%0ABeds%3A%20%0D%0A%0D%0A(Please%20edit%20this%20template%20to%20fit%20your%20inquiry%20or%20delete%20the%20fields%20and%20type%20in%20your%20message)"
                 target="_blank"
                 title="Send an e-mail to Paula"
               >
@@ -387,7 +506,9 @@
               <ul>
                 <li>
                   <svg class="fab fa-facebook-square"></svg>
-                  <a href="https://www.facebook.com/paulacorrearealtor/"
+                  <a
+                    href="https://www.facebook.com/paulacorrearealtor/"
+                    target="_blank"
                     >Facebook</a
                   >
                 </li>
@@ -399,6 +520,7 @@
                   <svg class="fab fa-whatsapp"></svg>
                   <a
                     href="https://wa.me/14076689070"
+                    target="_blank"
                     title="Send me a message on Whatsapp"
                     >Whatsapp</a
                   >
@@ -414,19 +536,22 @@
           </li>
           <li>
             <svg class="fab fa-facebook-square"></svg>
-            <a href="https://www.facebook.com/goldkeyorlando/">
+            <a href="https://www.facebook.com/goldkeyorlando/" target="_blank">
               fabook.com/goldkeyorlando
             </a>
           </li>
           <li>
             <svg class="fab fa-instagram"></svg>
-            <a href="https://www.instagram.com/goldkey_orlando/">
+            <a
+              href="https://www.instagram.com/goldkey_orlando/"
+              target="_blank"
+            >
               instagram.com/goldkey_orlando
             </a>
           </li>
         </ul>
         <p>
-          <b> &copy; 2020 Gold Key Group Orlando. All rights reserved. </b>
+          <b> &copy; <?php echo date("Y"); ?> Gold Key Group Orlando. All rights reserved. </b>
           The data relating to real estate displayed on this website comes in
           part from the Internet Data Exchange (IDX) Program of My Florida
           Regional MLS DBA Stellar MLS. All listing information is deemed
@@ -437,8 +562,7 @@
           verified. Listing information is provided for consumers' personal,
           non-commercial use, solely to identify potential properties for
           potential purchase; all other use is strictly prohibited and may
-          violate relevant federal and state law. Last updated 08/13/2020 XX:XX
-          AM
+          violate relevant federal and state law.
         </p>
         <div class="footer__logos-rr-smls">
           <img src="../Images/rr-logo.png" alt="Revolution Realty logo" />

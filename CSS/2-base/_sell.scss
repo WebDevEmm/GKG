@@ -1,34 +1,32 @@
 .header--sell {
-    background: url("../../Images/search--bg-2.jpg");
-    // background-position-x: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background: url("../../Images/search--bg-2.jpg");
+  // background-position-x: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .content {
-    a {
-        @include anchor();
-    }
+  a {
+    @include anchor();
+  }
 }
 
 #sell--form--section {
-    .section--title {
-        padding-top: 1em;
+  .section--title {
+    padding-top: 1em;
+  }
 
+  .content {
+    p {
+      color: $colorText-1;
+      font-size: 2rem;
     }
 
-    .content {
-        p {
-            color: $colorText-1;
-            font-size: 2rem;
-        }
-
-        form {
-            .form--header {
-                font-size: 2em;
-                color: $colorText-2;
-                margin: 0 auto;
-            }
-        }
+    form {
+      .form--header {
+        font-size: 2rem;
+        color: $colorText-2;
+      }
     }
+  }
 }

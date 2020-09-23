@@ -2,11 +2,16 @@
   #bottom--nav {
     display: none;
   }
-  // }
 
-  // @media screen and (max-width: 940px) {
-  // #header--img {
-  // }
+  .php--message {
+    text-align: center;
+    font-size: 0.6em;
+
+    #close--btn {
+      display: block;
+      
+    }
+  }
 
   header {
     #header--text {
@@ -131,23 +136,13 @@
     }
   }
 
-  // .why--us--box--h3 {
-  //   font-size: 1em;
-  // }
-
-  footer {
-    h2 {
-      margin: -1em auto 0em;
-      .footer__flex {
-        .footer__addresses {
-          .footer--card {
-            background: red;
-          }
-        }
+  #contact--form--section {
+    form {
+      padding: 0 0 1.8em;
+      width: 100%;
+      .form--header {
+        padding-bottom: 0;
       }
     }
-  }
-  .footer--card {
-    padding: 0;
   }
 }

@@ -292,7 +292,7 @@ header .rr--logo {
   background: white;
   bottom: 1.5rem;
   right: 2rem;
-  width: 200px;
+  width: 280px;
   margin: 0;
   padding: 0.5rem;
   border-radius: 0;
@@ -1141,7 +1141,7 @@ section {
   font-size: 3em;
   width: 320px;
   height: 200px;
-  margin-bottom: 1em;
+  margin-bottom: 0em;
 }
 
 #why--us--section .why--us .why--us--box .why--us--box--p {
@@ -1247,6 +1247,7 @@ form .form--data .form--col textarea {
           box-sizing: border-box;
   border-radius: 10px;
   padding: 0.5rem;
+  resize: none;
 }
 
 form .form--data .form--col .form--time--option {
@@ -1703,9 +1704,9 @@ footer .footer__flex address {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 1em;
-  padding: 1em 1em 0;
-  margin: 1.6em auto 0;
+  gap: 0em;
+  padding: 1em 0.2em 0;
+  margin: 1em auto 0;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
@@ -1980,14 +1981,50 @@ img {
 }
 
 #sell--form--section .content form .form--header, #sell--form--section .content form .form--footer {
-  font-size: 2em;
+  font-size: 2rem;
   color: #2a283f;
-  margin: 0 auto;
+}
+
+.error {
+  background: red;
+}
+
+.success {
+  background: green;
+}
+
+.php--message {
+  font-size: 0.8em;
+  position: fixed;
+  display: block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 1.5em;
+}
+
+.php--message #close--btn {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 @media screen and (max-width: 1240px) {
   #bottom--nav {
     display: none;
+  }
+  .php--message {
+    text-align: center;
+    font-size: 0.6em;
+  }
+  .php--message #close--btn {
+    display: block;
+    position: relative;
+    margin-top: 1em;
+    bottom: 0.5em;
   }
   header #header--text {
     margin-bottom: 8em;
@@ -2115,14 +2152,12 @@ img {
   #about--section .agents .agent .bio {
     width: 90%;
   }
-  footer h2 {
-    margin: -1em auto 0em;
+  #contact--form--section form {
+    padding: 0 0 1.8em;
+    width: 100%;
   }
-  footer h2 .footer__flex .footer__addresses .footer--card {
-    background: red;
-  }
-  .footer--card {
-    padding: 0;
+  #contact--form--section form .form--header, #contact--form--section form .form--footer {
+    padding-bottom: 0;
   }
 }
 /*# sourceMappingURL=main.css.map */
